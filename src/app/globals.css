@@ -13,7 +13,10 @@
 html,
 body {
   max-width: 100vw;
+  height: 100%;
   overflow-x: hidden;
+  overflow: scroll; /* или auto, в зависимости от ситуации */
+  scrollbar-width: none; /* для Firefox */
 }
 
 body {
@@ -24,6 +27,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body::-webkit-scrollbar {
+  display: none; /* для Chrome, Safari, и других браузеров на основе WebKit */
+}
 * {
   box-sizing: border-box;
   padding: 0;
