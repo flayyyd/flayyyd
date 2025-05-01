@@ -504,6 +504,9 @@
   .header .subtitle {
     font-size: 20px;
   }
+  .page .section .container .info_column:nth-of-type(3) {
+    width: 100% !important;
+  }
 }
 
 @media (max-width: 550px) {

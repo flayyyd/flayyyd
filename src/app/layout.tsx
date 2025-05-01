@@ -3,7 +3,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import { Montserrat } from "next/font/google";
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import { useEffect } from "react";
@@ -13,6 +13,12 @@ const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
+
+const montserrat = Montserrat({
+  weight: ['400', '500', '600', '700'], // указываешь нужные тебе веса
+  subsets: ['latin'], // можно указать дополнительные поднаборы
+});
+
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -76,6 +82,12 @@ export default function RootLayout({
   
   return (
     <html lang="en">
+      <head>        
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
       <div className="custom-cursor">
         <div className="triangle"></div>
