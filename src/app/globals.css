@@ -5,7 +5,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #000;
     --foreground: #ededed;
   }
 }
@@ -39,4 +39,55 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+body {
+  cursor: none !important;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, transform 0.3s ease;
+  z-index: 9999;
+}
+
+.custom-cursor .triangle {
+  position: absolute; /* ← ЭТО ВАЖНО */
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  background: rgba(255, 255, 255, 0.363);
+  border-radius: 320px;
+  transform: translate(-50%, -50%);
+}
+
+
+/* анимация вращения круга+треугольника */
+@keyframes spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%   { transform: translate(-50%, -50%) scale(1); }
+  50%  { transform: translate(-50%, -50%) scale(1.6); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* класс для пульсации */
+.custom-cursor.pulse {
+  animation: pulse 0.6s ease-in-out infinite !important;
+}
+
+.custom-cursor.pulse .triangle {
+  animation: pulse 0.6s ease-in-out infinite !important;
 }
